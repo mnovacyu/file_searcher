@@ -3,7 +3,7 @@ import getopt
 
 try:
     opts, args = getopt.getopt(sys.argv[1:], 'i:e:s:f:h',
-        ['input', 'exclude', 'start', 'finish', 'help'])
+        ['directory', 'input', 'exclude', 'start', 'finish', 'help'])
 except getopt.GetoptError:
     usage()
     sys.exit(2)
@@ -12,6 +12,8 @@ for opt, arg in opts:
     if opt in ('-h', '--help'):
         usage()
         sys.exit(2)
+    elif opt in ('-d', '--dir'):
+        directory = arg
     elif opt in ('-i', '--input'):
         input_file = arg
     elif opt in ('-e', '--exclude'):

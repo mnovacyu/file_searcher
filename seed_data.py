@@ -6,7 +6,6 @@ fake = Faker()
 
 # write random files
 for i in range(50):
-
     prefix = fake.company()
     
     for i in range(random.randint(5,20)):

@@ -12,7 +12,6 @@ fake = Faker()
 
 # write random files
 for i in range(50):
-    folder = fake.iban()
     prefix = fake.company()
 
     # seed 20% of data to test_input_file
@@ -21,11 +20,11 @@ for i in range(50):
         f.write("%s\n" % prefix)
 
     # seed fake parent folders
-    os.makedirs(os.path.dirname("test/%s/" % folder))
+    os.makedirs(os.path.dirname("test/%s/" % prefix))
 
     # seed fake child folders
     for i in range(random.randint(10,30)):
         date = fake.date_between("-2yr", "now")
-        open("test/%s/%s_%s.gpg" % (folder, prefix, date), "w")
+        open("test/%s/%s_%s.gpg" % (prefix, prefix, date), "w")
 
 f.close()
